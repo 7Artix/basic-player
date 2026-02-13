@@ -41,4 +41,5 @@ target_link_libraries(basic-player
     swscale
     avfilter
     pthread
+    atomic
 )

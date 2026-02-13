@@ -9,27 +9,15 @@ Currently, it supports:
 
 Other screens can be supported through custom `Displayer` modules.
 
----
-
-## ✅ Current Features
+## Current Features
 
 - Image display (multi-format)
 - Video playback (multi-codec), **excluding** audio, subtitles, and sync/timer
 - Landscape / portrait orientation switching
 - Display area configuration and black padding for both SSD1306 and ST7735S
 
----
 
-## 🔧 Planned Features
-
-- Audio playback
-- Real-time video/audio synchronization
-- Runtime control (pause, seek, speed)
-- Subtitle rendering (ASS/SRT/etc.)
-
----
-
-## 🧩 Dependencies
+## Dependencies
 
 Before building and using `basic-player`, make sure your system provides the following:
 
@@ -50,9 +38,13 @@ sudo apt update
 sudo apt install libgpiod-dev cmake g++
 ```
 
----
+Install essential lib:
 
-## ⚙️ Build Instructions
+```shell
+apt install libavformat-dev libavcodec-dev libavutil-dev libswscale-dev libswresample-dev libavdevice-dev libavfilter-dev
+```
+
+## Build Instructions
 1. Create build directory:
 ```bash
 mkdir build && cd build
@@ -70,9 +62,8 @@ make -j$(nproc)
 
 4. Output binary will be in `./bin/basic-player`
 
----
 
-## ▶️ Usage
+## Usage
 
 ```bash
 ./bin/basic-player <video_path> <width> <height> <offsetX> <offsetY> <orientation>
@@ -97,13 +88,14 @@ make -j$(nproc)
 
 This will center the video, auto-scale it, and display it in landscape mode.
 
----
-
-## 💡 Notes
+## Notice
 
 - Monochrome OLED displays (like SSD1306) require pixel dithering for better visual output. The renderer supports error-diffusion (ED) and Bayer matrix dithering via FFmpeg `swscale`.
 - Ensure `/dev/i2c-*` and `/dev/spidev*` permissions are configured correctly.
 
----
+## Planned Features
 
-### ⚠️ **Under Active Development**
+- Audio playback
+- Real-time video/audio synchronization
+- Runtime control (pause, seek, speed)
+- Subtitle rendering (ASS/SRT/etc.)

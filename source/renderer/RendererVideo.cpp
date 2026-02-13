@@ -94,7 +94,7 @@ bool RendererVideo::setScalerVideo()
         std::cerr << "[Video Renderer] Failed to create scaler" << std::endl;
         return false;
     }
-    ctxScaler_->dither = config_.flagsDither;
+    av_opt_set_int(ctxScaler_, "dither", config_.flagsDither, 0);
     return true;
 }
 

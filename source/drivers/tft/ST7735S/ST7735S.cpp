@@ -79,7 +79,7 @@ bool DisplayerST7735S::init()
     config_.flagsScaler = SWS_BICUBIC;
     config_.flagsDither = SWS_DITHER_ED;
     
-    configure("/dev/spidev3.0", "gpiochip3", 8, "gpiochip3", 17);
+    configure("/dev/spidev3.0", "gpiochip3", 10, "gpiochip3", 17);
 
     // Panel Resolution Select:
     // GM2=0 GM1=1 GM0=1

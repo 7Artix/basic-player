@@ -14,6 +14,16 @@ extern "C" {
 
 namespace bplayer
 {
+#ifndef SWS_DITHER_BAYER
+#define SWS_DITHER_BAYER 1
+#endif
+
+#ifndef SWS_DITHER_ED
+#define SWS_DITHER_ED 2
+#endif
+
+    using SwsFlags = int;
+    using SwsDither = int;
 
 inline std::shared_ptr<AVFrame> make_avframe() {
 	auto deleter = [](AVFrame* frame) {
@@ -41,6 +51,7 @@ struct PlayerState {
 
 struct PlayerConfig {
 	std::atomic<SwsFlags> flagsScaler = SWS_BICUBIC;
+    // Dithering algorithm: SWS_DITHER_BAYER / SWS_DITHER_ED
     std::atomic<SwsDither> flagsDither = SWS_DITHER_BAYER;
 };
 

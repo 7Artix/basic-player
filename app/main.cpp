@@ -2,6 +2,8 @@
 
 #include "ST7735S.hpp"
 
+#include "SSD1306.hpp"
+
 using namespace bplayer;
 
 int main(int argc, char* argv[])

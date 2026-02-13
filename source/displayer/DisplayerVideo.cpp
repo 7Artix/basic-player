@@ -28,7 +28,7 @@ DisplayerVideo::~DisplayerVideo()
 bool DisplayerVideo::init(Orientation orientation, 
     int width, int height, int offsetX, int offsetY)
 {
-    screen_ = std::make_unique<DisplayerST7735S>(frameParSrc_, frameParDst_, config_);
+    screen_ = std::make_unique<DisplayerSSD1306>(frameParSrc_, frameParDst_, config_);
     bool ret = screen_->init();
     screen_->clear();
     screen_->setOrientation(orientation);
